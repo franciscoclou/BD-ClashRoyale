@@ -1,4 +1,5 @@
-CREATE TABLE Player (
+CREATE TABLE
+    Player (
         player_id INT PRIMARY KEY NOT NULL,
         username VARCHAR(50) NOT NULL,
         level INT NOT NULL CHECK (level >= 0),
@@ -28,10 +29,18 @@ CREATE TABLE
         rarity VARCHAR(50) CHECK (
             rarity IN ('commun', 'rare', 'epic', 'legendary', 'champion')
         ),
-        FOREIGN KEY Item REFERENCES Item (item_id)
+        type VARCHAR(50) CHECK (type IN ('aerial', 'ground', 'spell', 'building')),
+        elixir_cost INT NOT NULL CHECK (0 <= elixir_cost <= 10),
+        FOREIGN KEY (item_id) REFERENCES Item (item_id)
     )
-
-CREATE TABLE Arena (
+CREATE TABLE
+    Battle (
+        battle_id INT PRIMARY key NOT NULL,
+        duration INT NOT NULL CHECK (duration > 0),
+        crowns INT NOT NULL CHECK (crowns >= 0)
+    )
+CREATE TABLE
+    Arena (
         arena_id INT PRIMARY KEY NOT NULL,
         name VARCHAR(50) NOT NULL,
         min_trophies INT NOT NULL CHECK (min_trophies >= 0),
@@ -39,19 +48,20 @@ CREATE TABLE Arena (
         UNIQUE (name, min_trophies)
     );
 
-CREATE TABLE CHESTTYPE(
-    type VARCHAR(50) PRIMARY KEY NOT NULL,
-    unlock_time INT NOT NULL CHECK (unlock_time >= 0)
-)
-
-CREATE TABLE CHESTINSTANCE(
-    chest_id INT PRIMARY KEY NOT NULL,
-    type VARCHAR(50) NOT NULL,
-)
-
-CREATE TABLE CLAN(
-    clan_id INT PRIMARY KEY NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    flag INT NOT NULL,
-    total_trophies INT NOT NULL CHECK (total_trophies >= 0)
-)
+CREATE TABLE
+    CHESTTYPE (
+        type VARCHAR(50) PRIMARY KEY NOT NULL,
+        unlock_time INT NOT NULL CHECK (unlock_time >= 0)
+    )
+CREATE TABLE
+    CHESTINSTANCE (
+        chest_id INT PRIMARY KEY NOT NULL,
+        type VARCHAR(50) NOT NULL,
+    )
+CREATE TABLE
+    CLAN (
+        clan_id INT PRIMARY KEY NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        flag INT NOT NULL,
+        total_trophies INT NOT NULL CHECK (total_trophies >= 0)
+    )
