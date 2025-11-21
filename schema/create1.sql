@@ -1,100 +1,205 @@
+PRAGMA foreign_keys = ON;
+
 -- 1. Shop
 CREATE TABLE Shop (
-    shop_id INT PRIMARY KEY NOT NULL,
-    refresh_time TIME NOT NULL
+    shop_id INT PRIMARY KEY,
+    refresh_timestamp VARCHAR NOT NULL
 );
 
 -- 2. Item
 CREATE TABLE Item (
-    item_id INT PRIMARY KEY NOT NULL,
-    quantity INT NOT NULL
+    item_id INT PRIMARY KEY,
+    item_quantity INT NOT NULL CHECK (item_quantity >= 0)
 );
 
--- 3. Card (Extends Item)
+-- 3. Card
 CREATE TABLE Card (
-    item_id INT PRIMARY KEY NOT NULL,
-    card_name VARCHAR(50) NOT NULL,
-    rarity VARCHAR(50) CHECK (rarity IN ('commun', 'rare', 'epic', 'legendary', 'champion')),
-    card_type VARCHAR(50) CHECK (card_type IN ('aerial', 'ground', 'spell', 'building')), -- Renomeado de 'type'
+    item_id INT PRIMARY KEY,
+    card_name VARCHAR NOT NULL,
+    rarity VARCHAR CHECK (rarity IN ('common', 'rare', 'epic', 'legendary', 'champion')),
+    card_type VARCHAR CHECK (card_type IN ('aerial', 'ground', 'spell', 'building')),
     elixir_cost INT NOT NULL CHECK (elixir_cost >= 0 AND elixir_cost <= 10),
     FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
--- 4. Gold (Extends Item)
+-- 4. Gold
 CREATE TABLE Gold (
-    item_id INT PRIMARY KEY NOT NULL,
+    item_id INT PRIMARY KEY,
     FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
--- 5. Gem (Extends Item)
+-- 5. Gem
 CREATE TABLE Gem (
-    item_id INT PRIMARY KEY NOT NULL,
+    item_id INT PRIMARY KEY,
     FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
 -- 6. Player
 CREATE TABLE Player (
-    player_id INT PRIMARY KEY NOT NULL,
-    username VARCHAR(50) NOT NULL,
-    level INT NOT NULL CHECK (level >= 0),
+    player_id INT PRIMARY KEY,
+    username VARCHAR NOT NULL,
+    player_level INT NOT NULL CHECK (player_level > 0),
     trophies INT NOT NULL CHECK (trophies >= 0),
-    gold INT NOT NULL CHECK (gold >= 0),
-    gems INT NOT NULL CHECK (gems >= 0),
+    gold_balance INT NOT NULL CHECK (gold_balance >= 0),
+    gems_balance INT NOT NULL CHECK (gems_balance >= 0),
     max_trophies INT NOT NULL CHECK (max_trophies >= 0),
     battles_won INT NOT NULL CHECK (battles_won >= 0)
 );
 
--- 7. Deck (Linked to Player)
+-- 7. Deck
 CREATE TABLE Deck (
-    deck_id INT PRIMARY KEY NOT NULL,
-    deck_number INT NOT NULL CHECK (deck_number >= 1 AND deck_number <= 20),
-    average_elixir FLOAT NOT NULL CHECK (average_elixir >= 0.0 AND average_elixir <= 10.0),
+    deck_id INT PRIMARY KEY,
+    deck_number INT NOT NULL CHECK (deck_number BETWEEN 1 AND 20),
+    average_elixir REAL NOT NULL CHECK (average_elixir >= 0),
     player_id INT NOT NULL,
     FOREIGN KEY (player_id) REFERENCES Player (player_id)
 );
 
 -- 8. Arena
 CREATE TABLE Arena (
-    arena_id INT PRIMARY KEY NOT NULL,
-    arena_name VARCHAR(50) NOT NULL,
+    arena_id INT PRIMARY KEY,
+    arena_name VARCHAR NOT NULL,
     min_trophies INT NOT NULL CHECK (min_trophies >= 0),
-    unlocked_cards INT NOT NULL CHECK (unlocked_cards >= 0),
-    UNIQUE (arena_name, min_trophies)
+    unlocked_cards_count INT NOT NULL CHECK (unlocked_cards_count >= 0),
+    UNIQUE (arena_name)
 );
 
 -- 9. ChestType
 CREATE TABLE ChestType (
-    chest_type VARCHAR(50) PRIMARY KEY NOT NULL, 
-    unlock_time INT NOT NULL CHECK (unlock_time >= 0)
+    type_name VARCHAR PRIMARY KEY,
+    unlock_time_minutes INT NOT NULL CHECK (unlock_time_minutes >= 0)
 );
 
 -- 10. ChestInstance
 CREATE TABLE ChestInstance (
-    chest_id INT PRIMARY KEY NOT NULL,
-    chest_type VARCHAR(50) NOT NULL,
-    FOREIGN KEY (chest_name) REFERENCES ChestType (chest_name)
+    chest_id INT PRIMARY KEY,
+    type_name VARCHAR NOT NULL,
+    FOREIGN KEY (type_name) REFERENCES ChestType (type_name)
 );
 
 -- 11. Tournament
 CREATE TABLE Tournament (
-    tournament_id INT PRIMARY KEY NOT NULL,
-    tournament_name VARCHAR(50) NOT NULL,
-    tournament_type VARCHAR(50) NOT NULL,
+    tournament_id INT PRIMARY KEY,
+    tournament_name VARCHAR NOT NULL,
+    tournament_type VARCHAR NOT NULL,
     start_date DATETIME NOT NULL,
-    end_date DATETIME NOT NULL CHECK (end_date >= start_date) 
+    end_date DATETIME NOT NULL,
+    CHECK (end_date >= start_date)
 );
 
 -- 12. Clan
 CREATE TABLE Clan (
-    clan_id INT PRIMARY KEY NOT NULL,
-    clan_name VARCHAR(50) NOT NULL,
-    flag INT NOT NULL,
+    clan_id INT PRIMARY KEY,
+    clan_name VARCHAR NOT NULL,
+    flag_id INT NOT NULL,
     clan_trophies INT NOT NULL CHECK (clan_trophies >= 0)
 );
 
 -- 13. Battle
 CREATE TABLE Battle (
-    battle_id INT PRIMARY KEY NOT NULL,
-    duration INT NOT NULL CHECK (duration > 0),
-    crowns INT NOT NULL CHECK (crowns >= 0)
+    battle_id INT PRIMARY KEY,
+    battle_duration INT NOT NULL CHECK (battle_duration > 0),
+    crowns_total INT NOT NULL CHECK (crowns_total >= 0)
+);
+
+-- Price
+CREATE TABLE Price (
+    item_id INT NOT NULL,
+    shop_id INT NOT NULL,
+    price_value INT NOT NULL CHECK (price_value > 0),
+    PRIMARY KEY (item_id, shop_id),
+    FOREIGN KEY (item_id) REFERENCES Item (item_id),
+    FOREIGN KEY (shop_id) REFERENCES Shop (shop_id)
+);
+
+-- CardStats
+CREATE TABLE CardStats (
+    item_id INT NOT NULL,
+    card_level INT NOT NULL CHECK (card_level > 0),
+    health_points INT CHECK (health_points > 0),
+    damage_points INT CHECK (damage_points >= 0),
+    PRIMARY KEY (item_id, card_level),
+    FOREIGN KEY (item_id) REFERENCES Card (item_id)
+);
+
+-- PlayerCardLevel
+CREATE TABLE PlayerCardLevel (
+    player_id INT NOT NULL,
+    item_id INT NOT NULL,
+    current_level INT NOT NULL CHECK (current_level > 0),
+    PRIMARY KEY (player_id, item_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (item_id) REFERENCES Item (item_id)
+);
+
+-- ItemChest
+CREATE TABLE ItemChest (
+    item_id INT NOT NULL,
+    chest_id INT NOT NULL,
+    PRIMARY KEY (item_id, chest_id),
+    FOREIGN KEY (item_id) REFERENCES Item (item_id),
+    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id)
+);
+
+-- CardDeck
+CREATE TABLE CardDeck (
+    item_id INT NOT NULL,
+    deck_id INT NOT NULL,
+    PRIMARY KEY (item_id, deck_id),
+    FOREIGN KEY (item_id) REFERENCES Card (item_id),
+    FOREIGN KEY (deck_id) REFERENCES Deck (deck_id)
+);
+
+-- PlayerChest
+CREATE TABLE PlayerChest (
+    chest_id INT NOT NULL,
+    player_id INT NOT NULL,
+    PRIMARY KEY (chest_id),
+    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id)
+);
+
+-- Stats
+CREATE TABLE Stats (
+    player_id INT NOT NULL,
+    tournament_id INT NOT NULL,
+    win_streak INT CHECK (win_streak >= 0),
+    ranking_position INT CHECK (ranking_position > 0),
+    PRIMARY KEY (player_id, tournament_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (tournament_id) REFERENCES Tournament (tournament_id)
+);
+
+-- PlayerArena
+CREATE TABLE PlayerArena (
+    player_id INT NOT NULL,
+    arena_id INT NOT NULL,
+    PRIMARY KEY (player_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (arena_id) REFERENCES Arena (arena_id)
+);
+
+-- PlayerClan
+CREATE TABLE PlayerClan (
+    player_id INT NOT NULL,
+    clan_id INT NOT NULL,
+    clan_role VARCHAR NOT NULL,
+    PRIMARY KEY (player_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (clan_id) REFERENCES Clan (clan_id),
+    CONSTRAINT uk_player_role UNIQUE (player_id, clan_role)
+);
+
+-- Result
+CREATE TABLE Result (
+    battle_id INT NOT NULL,
+    player_id1 INT NOT NULL,
+    player_id2 INT NOT NULL,
+    loser_id INT,
+    winner_id INT,
+    PRIMARY KEY (battle_id),
+    FOREIGN KEY (battle_id) REFERENCES Battle (battle_id),
+    FOREIGN KEY (player_id1) REFERENCES Player (player_id),
+    FOREIGN KEY (player_id2) REFERENCES Player (player_id),
+    CHECK (player_id1 <> player_id2) --player1 diferente do player2
 );
