@@ -55,15 +55,40 @@ INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES
 
 -- Tournament
 INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) VALUES
-(1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00');
+(1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00')
+(2, 'Winter Royale Bash', 'Round Robin', '2026-01-15 19:00:00', '2026-01-22 19:00:00'),
+(3, 'Desafio da Lâmina Silenciosa', 'Elimination', '2025-11-28 20:30:00', '2025-11-28 22:30:00'),
+(4, 'Copa da Sombra Eterna', 'League', '2026-02-01 10:00:00', '2026-02-28 22:00:00');
 --Torneio de exemplo, temos que criar o "Torneio do Lázaro maior Rei"👑
 
 -- Battle
 INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
-(1001, 180, 3),
-(1002, 120, 1);
-
-
+(1, 180, 3),
+(2, 120, 1),
+(3, 65, 3),
+(4, 300, 0),
+(5, 235, 2),
+(6, 150, 1),
+(7, 45, 3),  
+(8, 85, 3), 
+(9, 110, 3),
+(10, 95, 2),
+(11, 180, 1), 
+(12, 175, 2),
+(13, 160, 1),
+(14, 178, 1),
+(15, 180, 2),
+(16, 195, 1), 
+(17, 210, 1),
+(18, 245, 2), 
+(19, 290, 1),
+(20, 299, 1), 
+(21, 300, 0), 
+(22, 300, 0), 
+(23, 300, 2), 
+(24, 130, 3),
+(25, 200, 1),
+(26, 155, 2);
 
 -- Items: Moedas, Gemas e Cartas (Item table grouped)
 INSERT INTO Item (item_id, item_quantity) VALUES
