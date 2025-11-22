@@ -346,9 +346,7 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (20, 2, 1540, 176),
 (20, 3, 1694, 193),
 (20, 4, 1863, 212),
-(20, 5, 2049, 233),
-(20, 15, 5000, 600);
--- ... saltas para o nivel maximo para poupar trabalho
+(20, 5, 2049, 233), --Knight nos niveis 1,2,3,4,5
 --Tamos fucked, porque tipo existem 15 niveis para cada uma das 120 cartas👌(tomamos no butico)
 
 -- ChestInstance (Baús existentes)

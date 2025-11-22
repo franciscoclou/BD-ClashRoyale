@@ -42,20 +42,20 @@ CREATE TABLE Card (
     card_name VARCHAR NOT NULL,
     rarity VARCHAR CHECK (rarity IN ('common', 'rare', 'epic', 'legendary', 'champion')),
     card_type VARCHAR CHECK (card_type IN ('aerial', 'ground', 'spell', 'building')),
-    elixir_cost INT NOT NULL CHECK (elixir_cost >= 0 AND elixir_cost <= 10),
-    FOREIGN KEY (item_id) REFERENCES Item (item_id) ON DELETE CASCADE
+    elixir_cost INT NOT NULL CHECK (elixir_cost BETWEEN 1 AND 10),
+    FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
 -- 4. Gold
 CREATE TABLE Gold (
     item_id INT PRIMARY KEY,
-    FOREIGN KEY (item_id) REFERENCES Item (item_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
 -- 5. Gem
 CREATE TABLE Gem (
     item_id INT PRIMARY KEY,
-    FOREIGN KEY (item_id) REFERENCES Item (item_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
 -- 6. Player
@@ -76,7 +76,7 @@ CREATE TABLE Deck (
     deck_number INT NOT NULL CHECK (deck_number BETWEEN 1 AND 20),
     average_elixir REAL NOT NULL CHECK (average_elixir >= 0),
     player_id INT NOT NULL,
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE
+    FOREIGN KEY (player_id) REFERENCES Player (player_id)
 );
 
 -- 8. Arena
@@ -98,7 +98,7 @@ CREATE TABLE ChestType (
 CREATE TABLE ChestInstance (
     chest_id INT PRIMARY KEY,
     type_name VARCHAR NOT NULL,
-    FOREIGN KEY (type_name) REFERENCES ChestType (type_name) ON DELETE CASCADE
+    FOREIGN KEY (type_name) REFERENCES ChestType (type_name)
 );
 
 -- 11. Tournament
@@ -132,18 +132,18 @@ CREATE TABLE Price (
     shop_id INT NOT NULL,
     price_value INT NOT NULL CHECK (price_value > 0),
     PRIMARY KEY (item_id, shop_id),
-    FOREIGN KEY (item_id) REFERENCES Item (item_id) ON DELETE CASCADE,
-    FOREIGN KEY (shop_id) REFERENCES Shop (shop_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Item (item_id),
+    FOREIGN KEY (shop_id) REFERENCES Shop (shop_id)
 );
 
 -- CardStats
 CREATE TABLE CardStats (
     item_id INT NOT NULL,
-    card_level INT NOT NULL CHECK (card_level > 0 AND card_level =< 5),
+    card_level INT NOT NULL CHECK (card_level BETWEEN 1 AND 5),
     health_points INT CHECK (health_points > 0),
     damage_points INT CHECK (damage_points >= 0),
     PRIMARY KEY (item_id, card_level),
-    FOREIGN KEY (item_id) REFERENCES Card (item_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Card (item_id)
 );
 
 -- PlayerCardLevel
@@ -152,8 +152,8 @@ CREATE TABLE PlayerCardLevel (
     item_id INT NOT NULL,
     current_level INT NOT NULL CHECK (current_level > 0),
     PRIMARY KEY (player_id, item_id),
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE,
-    FOREIGN KEY (item_id) REFERENCES Card (item_id) ON DELETE CASCADE
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (item_id) REFERENCES Card (item_id)
 );
 
 -- ItemChest
@@ -161,8 +161,8 @@ CREATE TABLE ItemChest (
     item_id INT NOT NULL,
     chest_id INT NOT NULL,
     PRIMARY KEY (item_id, chest_id),
-    FOREIGN KEY (item_id) REFERENCES Item (item_id) ON DELETE CASCADE,
-    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Item (item_id),
+    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id)
 );
 
 -- CardDeck
@@ -170,8 +170,8 @@ CREATE TABLE CardDeck (
     item_id INT NOT NULL,
     deck_id INT NOT NULL,
     PRIMARY KEY (item_id, deck_id),
-    FOREIGN KEY (item_id) REFERENCES Card (item_id) ON DELETE CASCADE,
-    FOREIGN KEY (deck_id) REFERENCES Deck (deck_id) ON DELETE CASCADE
+    FOREIGN KEY (item_id) REFERENCES Card (item_id),
+    FOREIGN KEY (deck_id) REFERENCES Deck (deck_id)
 );
 
 -- PlayerChest
@@ -179,8 +179,8 @@ CREATE TABLE PlayerChest (
     chest_id INT NOT NULL,
     player_id INT NOT NULL,
     PRIMARY KEY (chest_id),
-    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id) ON DELETE CASCADE,
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE
+    FOREIGN KEY (chest_id) REFERENCES ChestInstance (chest_id),
+    FOREIGN KEY (player_id) REFERENCES Player (player_id)
 );
 
 -- Stats
@@ -190,8 +190,8 @@ CREATE TABLE Stats (
     win_streak INT CHECK (win_streak >= 0),
     ranking_position INT CHECK (ranking_position > 0),
     PRIMARY KEY (player_id, tournament_id),
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE,
-    FOREIGN KEY (tournament_id) REFERENCES Tournament (tournament_id) ON DELETE CASCADE
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (tournament_id) REFERENCES Tournament (tournament_id)
 );
 
 -- PlayerArena
@@ -199,8 +199,8 @@ CREATE TABLE PlayerArena (
     player_id INT NOT NULL,
     arena_id INT NOT NULL,
     PRIMARY KEY (player_id),
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE,
-    FOREIGN KEY (arena_id) REFERENCES Arena (arena_id) ON DELETE CASCADE
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (arena_id) REFERENCES Arena (arena_id)
 );
 
 -- PlayerClan
@@ -209,8 +209,8 @@ CREATE TABLE PlayerClan (
     clan_id INT NOT NULL,
     clan_role VARCHAR NOT NULL,
     PRIMARY KEY (player_id),
-    FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE,
-    FOREIGN KEY (clan_id) REFERENCES Clan (clan_id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES Player (player_id),
+    FOREIGN KEY (clan_id) REFERENCES Clan (clan_id),
     CONSTRAINT uk_player_role UNIQUE (player_id, clan_role)
 );
 
@@ -222,8 +222,8 @@ CREATE TABLE Result (
     loser_id INT,
     winner_id INT,
     PRIMARY KEY (battle_id),
-    FOREIGN KEY (battle_id) REFERENCES Battle (battle_id) ON DELETE CASCADE,
-    FOREIGN KEY (player_id1) REFERENCES Player (player_id) ON DELETE CASCADE,
-    FOREIGN KEY (player_id2) REFERENCES Player (player_id) ON DELETE CASCADE,
+    FOREIGN KEY (battle_id) REFERENCES Battle (battle_id),
+    FOREIGN KEY (player_id1) REFERENCES Player (player_id),
+    FOREIGN KEY (player_id2) REFERENCES Player (player_id),
     CHECK (player_id1 <> player_id2) --player1 diferente do player2
 );
