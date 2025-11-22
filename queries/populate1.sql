@@ -223,6 +223,19 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 -- Custo 9
 (111, 1); -- Three Musketeers
 
+--More Resources
+-- Gold Resource
+(112, 100000),
+(113, 10000), 
+(114, 10000),
+(115, 1000),
+(116, 100),
+-- Gem Resource
+(117, 100000),
+(118, 10000), 
+(119, 10000),
+(120, 1000),
+(121, 100),
 -- Gold / Gem links
 INSERT INTO Gold (item_id) VALUES (1);
 INSERT INTO Gem (item_id) VALUES (2);
@@ -594,8 +607,12 @@ INSERT INTO ChestInstance (chest_id, type_name) VALUES
 
 -- ItemChest (O que está dentro dos baús - potencial ou real)
 INSERT INTO ItemChest (item_id, chest_id) VALUES
-(1, 201), -- Gold no Silver Chest
-(3, 201); -- Knight no Silver Chest
+(1, 201), -- Gold no Silver Chest 1000000
+(65, 201), 
+(43, 201),
+(2, 202), 
+(4, 202), 
+(116, 202); 
 --Tipo... aqui é mrds random ne? nao precisamos de fazer todas as combinaçoes
 
 
