@@ -196,7 +196,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (110, 1), -- Electro Giant
 
 -- 9 Elixir
-(111, 1), -- Three Musketeers
+(111, 1); -- Three Musketeers
 
 --Se for assim depois chapa-se as cartas todas, queremos 5000 queries🙏
 
@@ -326,7 +326,7 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 (110, 'Electro Giant', 'epic', 'ground', 8),
 
 -- Custo 9
-(111, 'Three Musketeers', 'rare', 'ground', 9),
+(111, 'Three Musketeers', 'rare', 'ground', 9);
 
 
 -- Price (Preços na Loja)
