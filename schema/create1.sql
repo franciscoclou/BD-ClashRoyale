@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS Shop;
 -- 1. Shop
 CREATE TABLE Shop (
     shop_id INT PRIMARY KEY,
-    refresh_timestamp VARCHAR NOT NULL
+    refresh_timestamp DATETIME NOT NULL
 );
 
 -- 2. Item

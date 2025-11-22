@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS Shop;
 -- 1. Shop
 CREATE TABLE Shop (
     shop_id INTEGER PRIMARY KEY,
-    refresh_timestamp TEXT NOT NULL
+    refresh_timestamp DATETIME NOT NULL
 );
 
 -- 2. Item
@@ -106,8 +106,8 @@ CREATE TABLE Tournament (
     tournament_id INTEGER PRIMARY KEY,
     tournament_name TEXT NOT NULL,
     tournament_type TEXT NOT NULL,
-    start_date TEXT NOT NULL,
-    end_date TEXT NOT NULL,
+    start_date DATETIME NOT NULL,
+    end_date DATETIME NOT NULL,
     CHECK (end_date >= start_date)
 );
 
