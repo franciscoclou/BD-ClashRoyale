@@ -51,7 +51,6 @@ INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES
 (1, 'TugaPower', 101, 1200),
 (2, 'RoyaleKings', 102, 3000),
 (3, 'OsPadeiros', 103, 500);
---É suposto meter varios clas???????? Lost bro, maior parte temos de dar exemplos só ne
 
 -- Tournament
 INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) VALUES
@@ -59,7 +58,6 @@ INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_d
 (2, 'Winter Royale Bash', 'Round Robin', '2026-01-15 19:00:00', '2026-01-22 19:00:00'),
 (3, 'Desafio da Lâmina Silenciosa', 'Elimination', '2025-11-28 20:30:00', '2025-11-28 22:30:00'),
 (4, 'Copa da Sombra Eterna', 'League', '2026-02-01 10:00:00', '2026-02-28 22:00:00');
---Torneio de exemplo, temos que criar o "Torneio do Lázaro maior Rei"👑
 
 -- Battle
 INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
@@ -90,7 +88,7 @@ INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
 (25, 200, 1),
 (26, 155, 2);
 
--- Items: Moedas, Gemas e Cartas (Item table grouped)
+-- Items: Moedas, Gemas e Cartas 
 INSERT INTO Item (item_id, item_quantity) VALUES
 -- Resources
 (1, 1000000), -- Gold Resource
@@ -223,23 +221,24 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 -- Custo 9
 (111, 1); -- Three Musketeers
 
---More Resources
--- Gold Resource
+--More Quantity for Resources
+-- Gold 
 (112, 100000),
 (113, 10000), 
 (114, 10000),
 (115, 1000),
 (116, 100),
--- Gem Resource
+-- Gems
 (117, 100000),
 (118, 10000), 
 (119, 10000),
 (120, 1000),
 (121, 100),
+
 -- Gold / Gem links
 INSERT INTO Gold (item_id) VALUES (1);
 INSERT INTO Gem (item_id) VALUES (2);
---Foi o chat que fez, tou perdido preciso da vossa ajuda nesta parte de cima e de baixo. É assim?😭
+
 
 -- Card (grouped)
 INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
@@ -249,7 +248,7 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 (5, 'Fire Spirit', 'common', 'ground', 1),
 (6, 'Electro Spirit', 'common', 'ground', 1),
 (7, 'Heal Spirit', 'rare', 'ground', 1),
-(8, 'Mirror', 'epic', 'spell', 1), -- Custo Variável (+1)
+(8, 'Mirror', 'epic', 'spell', 1), 
 
 -- Custo 2
 (9, 'Goblins', 'common', 'ground', 2),
@@ -375,10 +374,9 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 INSERT INTO Price (item_id, shop_id, price_value) VALUES
 (3, 1, 100), -- Knight custa 100
 (5, 1, 500); -- Giant custa 500
---Tou confuso, dá para meter chests mas como?? Não tem item id
---Vamos ficar reduzidos a gold coin e cards na shop basicamente
 
--- CardStats (Estatísticas por nível) -- grouped for item 20 (Knight)
+
+-- CardStats (Estatísticas por nível)
 INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 -- ID 3: Skeletons
 (3, 1, 67, 67), (3, 2, 74, 74), (3, 3, 81, 81), (3, 4, 89, 89), (3, 5, 98, 98),
@@ -390,7 +388,7 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (6, 1, 190, 84), (6, 2, 209, 92), (6, 3, 230, 102), (6, 4, 253, 112), (6, 5, 278, 123),
 -- ID 7: Heal Spirit
 (7, 1, 190, 91), (7, 2, 209, 100), (7, 3, 230, 110), (7, 4, 253, 121), (7, 5, 278, 133),
--- ID 8: Mirror (Stats 0, copia outras)
+-- ID 8: Mirror 
 (8, 1, 0, 0), (8, 2, 0, 0), (8, 3, 0, 0), (8, 4, 0, 0), (8, 5, 0, 0),
 -- ID 9: Goblins
 (9, 1, 167, 99), (9, 2, 184, 109), (9, 3, 202, 120), (9, 4, 222, 132), (9, 5, 244, 145),
@@ -402,15 +400,15 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (12, 1, 275, 271), (12, 2, 303, 298), (12, 3, 333, 328), (12, 4, 366, 361), (12, 5, 403, 397),
 -- ID 13: Ice Golem
 (13, 1, 625, 70), (13, 2, 688, 77), (13, 3, 756, 85), (13, 4, 832, 93), (13, 5, 915, 102),
--- ID 14: Zap (Feitiço)
+-- ID 14: Zap 
 (14, 1, 0, 159), (14, 2, 0, 175), (14, 3, 0, 192), (14, 4, 0, 211), (14, 5, 0, 232),
--- ID 15: Giant Snowball (Feitiço)
+-- ID 15: Giant Snowball
 (15, 1, 0, 159), (15, 2, 0, 175), (15, 3, 0, 192), (15, 4, 0, 211), (15, 5, 0, 232),
--- ID 16: The Log (Feitiço)
+-- ID 16: The Log
 (16, 1, 0, 240), (16, 2, 0, 264), (16, 3, 0, 290), (16, 4, 0, 319), (16, 5, 0, 351),
--- ID 17: Barbarian Barrel (Feitiço/Tropa)
+-- ID 17: Barbarian Barrel 
 (17, 1, 0, 200), (17, 2, 0, 220), (17, 3, 0, 242), (17, 4, 0, 266), (17, 5, 0, 293),
--- ID 18: Rage (Feitiço - sem dano direto no nível base antigo, ou baixo agora)
+-- ID 18: Rage 
 (18, 1, 0, 0), (18, 2, 0, 0), (18, 3, 0, 0), (18, 4, 0, 0), (18, 5, 0, 0),
 -- ID 19: Wall Breakers
 (19, 1, 275, 325), (19, 2, 303, 358), (19, 3, 333, 393), (19, 4, 366, 433), (19, 5, 403, 476),
@@ -434,13 +432,13 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (28, 1, 440, 0), (28, 2, 484, 0), (28, 3, 532, 0), (28, 4, 586, 0), (28, 5, 644, 0),
 -- ID 29: Cannon
 (29, 1, 742, 175), (29, 2, 816, 193), (29, 3, 898, 212), (29, 4, 988, 233), (29, 5, 1086, 256),
--- ID 30: Goblin Barrel (Status de spawn)
+-- ID 30: Goblin Barrel 
 (30, 1, 0, 99), (30, 2, 0, 109), (30, 3, 0, 120), (30, 4, 0, 132), (30, 5, 0, 145),
--- ID 31: Skeleton Barrel (Dano de queda)
+-- ID 31: Skeleton Barrel 
 (31, 1, 600, 67), (31, 2, 660, 74), (31, 3, 726, 81), (31, 4, 799, 89), (31, 5, 878, 98),
 -- ID 32: Firecracker
 (32, 1, 252, 53), (32, 2, 277, 58), (32, 3, 305, 64), (32, 4, 335, 71), (32, 5, 369, 78),
--- ID 33: Arrows (Feitiço)
+-- ID 33: Arrows 
 (33, 1, 0, 303), (33, 2, 0, 333), (33, 3, 0, 366), (33, 4, 0, 403), (33, 5, 0, 443),
 -- ID 34: Clone
 (34, 1, 0, 0), (34, 2, 0, 0), (34, 3, 0, 0), (34, 4, 0, 0), (34, 5, 0, 0),
@@ -498,11 +496,11 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (60, 1, 440, 133), (60, 2, 484, 146), (60, 3, 532, 161), (60, 4, 586, 177), (60, 5, 644, 195),
 -- ID 61: Battle Healer
 (61, 1, 1500, 123), (61, 2, 1650, 135), (61, 3, 1815, 149), (61, 4, 1997, 164), (61, 5, 2196, 180),
--- ID 62: Fireball (Feitiço)
+-- ID 62: Fireball 
 (62, 1, 0, 572), (62, 2, 0, 629), (62, 3, 0, 692), (62, 4, 0, 761), (62, 5, 0, 837),
--- ID 63: Poison (Feitiço - Dano Total/seg)
+-- ID 63: Poison 
 (63, 1, 0, 75), (63, 2, 0, 83), (63, 3, 0, 91), (63, 4, 0, 100), (63, 5, 0, 110),
--- ID 64: Freeze (Feitiço)
+-- ID 64: Freeze 
 (64, 1, 0, 95), (64, 2, 0, 105), (64, 3, 0, 115), (64, 4, 0, 126), (64, 5, 0, 139),
 -- ID 65: Electro Wizard
 (65, 1, 590, 192), (65, 2, 649, 211), (65, 3, 714, 232), (65, 4, 785, 255), (65, 5, 864, 281),
@@ -556,7 +554,7 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (89, 1, 1010, 280), (89, 2, 1111, 308), (89, 3, 1222, 339), (89, 4, 1344, 373), (89, 5, 1479, 410),
 -- ID 90: Bowler
 (90, 1, 1600, 240), (90, 2, 1760, 264), (90, 3, 1936, 290), (90, 4, 2130, 319), (90, 5, 2343, 351),
--- ID 91: Graveyard (Spawn esqueletos)
+-- ID 91: Graveyard 
 (91, 1, 0, 67), (91, 2, 0, 74), (91, 3, 0, 81), (91, 4, 0, 89), (91, 5, 0, 98),
 -- ID 92: Ram Rider
 (92, 1, 1461, 220), (92, 2, 1607, 242), (92, 3, 1768, 266), (92, 4, 1945, 293), (92, 5, 2139, 322),
@@ -578,9 +576,9 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 (100, 1, 1200, 1100), (100, 2, 1320, 1210), (100, 3, 1452, 1331), (100, 4, 1597, 1464), (100, 5, 1757, 1611),
 -- ID 101: X-Bow
 (101, 1, 1330, 26), (101, 2, 1463, 29), (101, 3, 1609, 31), (101, 4, 1770, 35), (101, 5, 1947, 38),
--- ID 102: Rocket (Feitiço)
+-- ID 102: Rocket 
 (102, 1, 0, 1232), (102, 2, 0, 1355), (102, 3, 0, 1491), (102, 4, 0, 1640), (102, 5, 0, 1804),
--- ID 103: Lightning (Feitiço)
+-- ID 103: Lightning 
 (103, 1, 0, 877), (103, 2, 0, 965), (103, 3, 0, 1061), (103, 4, 0, 1167), (103, 5, 0, 1284),
 -- ID 104: P.E.K.K.A
 (104, 1, 3458, 678), (104, 2, 3804, 746), (104, 3, 4184, 820), (104, 4, 4602, 902), (104, 5, 5062, 993),
@@ -599,13 +597,12 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 -- ID 111: Three Musketeers
 (111, 1, 598, 181), (111, 2, 658, 199), (111, 3, 724, 219), (111, 4, 796, 241), (111, 5, 876, 265),
 
--- ChestInstance (Baús existentes)
+-- ChestInstance 
 INSERT INTO ChestInstance (chest_id, type_name) VALUES
 (201, 'Silver'),
 (202, 'Gold');
---Nao percebi esta mrd, pedi ao chat🤔
 
--- ItemChest (O que está dentro dos baús - potencial ou real)
+-- ItemChest
 INSERT INTO ItemChest (item_id, chest_id) VALUES
 (1, 201), -- Gold no Silver Chest 1000000
 (65, 201), 
@@ -613,8 +610,6 @@ INSERT INTO ItemChest (item_id, chest_id) VALUES
 (2, 202), 
 (4, 202), 
 (116, 202); 
---Tipo... aqui é mrds random ne? nao precisamos de fazer todas as combinaçoes
-
 
 
 -- Players
@@ -624,33 +619,28 @@ INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, g
 (40, 'GhostUser', 1, 0, 0, 0, 0, 0),
 (20, 'NoobMaster', 1, 0, 100, 0, 50, 1);
 
--- PlayerArena
--- Nota: TugaKing tem 1200 troféus, pode entrar na Arena 3 (Min 800)
--- NoobMaster tem 0 troféus, entra na Arena 1 (Min 0)
+
 INSERT INTO PlayerArena (player_id, arena_id) VALUES
 (10, 3),
 (20, 1);
---Era bue mais facil com triggers mas nao podemos usar... agora é tudo na mao da punheta
 
 -- PlayerClan
 INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES
 (10, 1, 'Leader'),
 (20, 1, 'Member'),
 (30, 1, 'Builder');
---Aqui é chill, pode ser qualquer cena
+
 
 -- PlayerChest (Baús que os jogadores possuem)
 INSERT INTO PlayerChest (chest_id, player_id) VALUES
 (201, 10),
 (202, 10);
---Metemos tipo 4? Devia haver um limitador sei la
 
 -- PlayerCardLevel (Coleção dos jogadores)
 INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES
 (10, 3, 2), -- TugaKing tem Knight lvl 2
 (10, 5, 1), -- TugaKing tem Giant lvl 1
 (20, 3, 1); -- NoobMaster tem Knight lvl 1
---Esta cena nao da para sacar la da coleçao de cima???
 
 -- Stats (Torneios)
 INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES
@@ -658,19 +648,15 @@ INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUE
 --Por player
 
 
--- Daqui para baixo é chat (Eu sei que nao da para usar triggers)
-
--- ==========================================
--- 5. DECKS E BATALHAS (Com Triggers)
--- ==========================================
 
 -- Deck
--- Inicializamos average_elixir a 0. O Trigger vai atualizar isto ao inserir cartas.
 INSERT INTO Deck (deck_id, deck_number, average_elixir, player_id) VALUES (1, 1, 0.0, 10);
 
 -- CardDeck (Preencher o deck do TugaKing)
 -- Knight (3 elixir) + Archers (3 elixir) + Giant (5 elixir) + Fireball (4 elixir)
 -- Total: 15 / 4 cartas = 3.75 elixir médio
+
+-- CardDeck
 INSERT INTO CardDeck (item_id, deck_id) VALUES
 (20, 1), -- Knight (3)
 (39, 1), -- Princess (3)
@@ -682,7 +668,6 @@ INSERT INTO CardDeck (item_id, deck_id) VALUES
 (102, 1); -- Rocket (6)
 
 -- Result (Batalhas)
--- TugaKing (10) vs NoobMaster (20)
 INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALUES
 (1001, 10, 20, 20, 10),
 (1003, 10, 30, 30, 10),
