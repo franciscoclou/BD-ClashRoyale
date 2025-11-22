@@ -140,7 +140,7 @@ CREATE TABLE Price (
 CREATE TABLE CardStats (
     item_id INT NOT NULL,
     card_level INT NOT NULL CHECK (card_level BETWEEN 1 AND 5),
-    health_points INT CHECK (health_points > 0),
+    health_points INT CHECK (health_points >= 0),
     damage_points INT CHECK (damage_points >= 0),
     PRIMARY KEY (item_id, card_level),
     FOREIGN KEY (item_id) REFERENCES Card (item_id)

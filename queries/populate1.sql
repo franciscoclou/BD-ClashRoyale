@@ -611,7 +611,7 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 -- ID 110: Electro Giant
 (110, 1, 3200, 159), (110, 2, 3520, 175), (110, 3, 3872, 192), (110, 4, 4259, 211), (110, 5, 4685, 232),
 -- ID 111: Three Musketeers
-(111, 1, 598, 181), (111, 2, 658, 199), (111, 3, 724, 219), (111, 4, 796, 241), (111, 5, 876, 265),
+(111, 1, 598, 181), (111, 2, 658, 199), (111, 3, 724, 219), (111, 4, 796, 241), (111, 5, 876, 265);
 
 -- ChestInstance 
 INSERT INTO ChestInstance (chest_id, type_name) VALUES

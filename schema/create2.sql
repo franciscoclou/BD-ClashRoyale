@@ -139,9 +139,9 @@ CREATE TABLE Price (
 -- CardStats
 CREATE TABLE CardStats (
     item_id INTEGER NOT NULL,
-        card_level INTEGER NOT NULL CHECK (card_level BETWEEN 1 AND 5),
-    health_poINTEGERs INTEGER CHECK (health_poINTEGERs > 0),
-    damage_poINTEGERs INTEGER CHECK (damage_poINTEGERs >= 0),
+    card_level INTEGER NOT NULL CHECK (card_level BETWEEN 1 AND 5),
+    health_points INTEGER CHECK (health_points >= 0),
+    damage_points INTEGER CHECK (damage_points >= 0),
     PRIMARY KEY (item_id, card_level),
     FOREIGN KEY (item_id) REFERENCES Card (item_id) ON DELETE CASCADE
 );
@@ -211,7 +211,7 @@ CREATE TABLE PlayerClan (
     PRIMARY KEY (player_id),
     FOREIGN KEY (player_id) REFERENCES Player (player_id) ON DELETE CASCADE,
     FOREIGN KEY (clan_id) REFERENCES Clan (clan_id) ON DELETE CASCADE,
-    CONSTRAINTEGER uk_player_role UNIQUE (player_id, clan_role)
+    CONSTRAINT uk_player_role UNIQUE (player_id, clan_role)
 );
 
 -- Result
