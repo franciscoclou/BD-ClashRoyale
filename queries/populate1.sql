@@ -71,7 +71,6 @@ INSERT INTO Gem (item_id) VALUES (2);
 -- Items 3 a 6 são Cartas
 -- Nota: Inserimos primeiro na tabela Item, depois na tabela Card
 INSERT INTO Item (item_id, item_quantity) VALUES
-INSERT INTO Item (item_id, item_quantity) VALUES
 -- 1 Elixir
 (3, 1), -- Skeletons
 (4, 1), -- Ice Spirit
