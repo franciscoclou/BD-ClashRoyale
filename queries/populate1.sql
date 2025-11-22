@@ -1,77 +1,77 @@
 PRAGMA foreign_keys = ON;
 
 -- Shop
-INSERT INTO Shop (shop_id, refresh_timestamp) VALUES (1, '00:00:00');
-INSERT INTO Shop (shop_id, refresh_timestamp) VALUES (2, '12:00:00');
+INSERT INTO Shop (shop_id, refresh_timestamp) VALUES
+(1, '00:00:00'),
+(2, '12:00:00');
 
 -- ChestType
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Wooden', 1);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Silver', 180);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Gold', 480);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Magical', 720);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Giant', 720);    
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Legendary', 1440);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Champion', 1440);  
-INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES ('Lightning', 1440);  
+INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES
+('Wooden', 1),
+('Silver', 180),
+('Gold', 480),
+('Magical', 720),
+('Giant', 720),
+('Legendary', 1440),
+('Champion', 1440),
+('Lightning', 1440);
 
 
 -- Arena
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (0, 'Training Camp', 0, 12);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (1, 'Goblin Stadium', 0, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (2, 'Bone Pit', 300, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (3, 'Barbarian Bowl', 600, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (4, 'Spell Valley', 1000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (5, 'Builder''s Workshop', 1300, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (6, 'P.E.K.K.A''s Playhouse', 1600, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (7, 'Royal Arena', 2000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (8, 'Frozen Peak', 2300, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (9, 'Jungle Arena', 2600, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (10, 'Hog Mountain', 3000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (11, 'Electro Valley', 3400, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (12, 'Spooky Town', 3800, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (13, 'Rascal''s Hideout', 4200, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (14, 'Serenity Peak', 4600, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (15, 'Miner''s Mine', 5000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (16, 'Executioner''s Kitchen', 5500, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (17, 'Royal Crypt', 6000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (18, 'Silent Sanctuary', 6500, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (19, 'Dragon Spa', 7000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (20, 'Boot Camp', 7500, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (21, 'Clash Fest', 8000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (22, 'PANCAKES!', 8500, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (23, 'Valkalla', 9000, 6);  
-INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES (24, 'Legendary Arena', 9500, 6);
+INSERT INTO Arena (arena_id, arena_name, min_trophies, unlocked_cards_count) VALUES
+(0, 'Training Camp', 0, 12),
+(1, 'Goblin Stadium', 0, 6),
+(2, 'Bone Pit', 300, 6),
+(3, 'Barbarian Bowl', 600, 6),
+(4, 'Spell Valley', 1000, 6),
+(5, 'Builder''s Workshop', 1300, 6),
+(6, 'P.E.K.K.A''s Playhouse', 1600, 6),
+(7, 'Royal Arena', 2000, 6),
+(8, 'Frozen Peak', 2300, 6),
+(9, 'Jungle Arena', 2600, 6),
+(10, 'Hog Mountain', 3000, 6),
+(11, 'Electro Valley', 3400, 6),
+(12, 'Spooky Town', 3800, 6),
+(13, 'Rascal''s Hideout', 4200, 6),
+(14, 'Serenity Peak', 4600, 6),
+(15, 'Miner''s Mine', 5000, 6),
+(16, 'Executioner''s Kitchen', 5500, 6),
+(17, 'Royal Crypt', 6000, 6),
+(18, 'Silent Sanctuary', 6500, 6),
+(19, 'Dragon Spa', 7000, 6),
+(20, 'Boot Camp', 7500, 6),
+(21, 'Clash Fest', 8000, 6),
+(22, 'PANCAKES!', 8500, 6),
+(23, 'Valkalla', 9000, 6),
+(24, 'Legendary Arena', 9500, 6);
 
 
 -- Clan
-INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES (1, 'TugaPower', 101, 1200);
-INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES (2, 'RoyaleKings', 102, 3000);
+INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES
+(1, 'TugaPower', 101, 1200),
+(2, 'RoyaleKings', 102, 3000),
+(3, 'OsPadeiros', 103, 500);
 --É suposto meter varios clas???????? Lost bro, maior parte temos de dar exemplos só ne
 
 -- Tournament
-INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) 
-VALUES (1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00');
+INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) VALUES
+(1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00');
 --Torneio de exemplo, temos que criar o "Torneio do Lázaro maior Rei"👑
 
 -- Battle
-INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES (1001, 180, 3);
-INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES (1002, 120, 1);
+INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
+(1001, 180, 3),
+(1002, 120, 1);
 
 
 
-
--- Items 1 e 2 são Moedas e Gemas
-INSERT INTO Item (item_id, item_quantity) VALUES (1, 1000000); -- Gold Resource
-INSERT INTO Item (item_id, item_quantity) VALUES (2, 1000000); -- Gem Resource
-
-INSERT INTO Gold (item_id) VALUES (1);
-INSERT INTO Gem (item_id) VALUES (2);
---Foi o chat que fez, tou perdido preciso da vossa ajuda nesta parte de cima e de baixo. É assim?😭
-
--- Items 3 a 6 são Cartas
--- Nota: Inserimos primeiro na tabela Item, depois na tabela Card
+-- Items: Moedas, Gemas e Cartas (Item table grouped)
 INSERT INTO Item (item_id, item_quantity) VALUES
--- 1 Elixir
+-- Resources
+(1, 1000000), -- Gold Resource
+(2, 1000000), -- Gem Resource
+
+-- Custo 1
 (3, 1), -- Skeletons
 (4, 1), -- Ice Spirit
 (5, 1), -- Fire Spirit
@@ -79,7 +79,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (7, 1), -- Heal Spirit
 (8, 1), -- Mirror (Variable Cost)
 
--- 2 Elixir
+-- Custo 2
 (9, 1), -- Goblins
 (10, 1), -- Spear Goblins
 (11, 1), -- Bats
@@ -92,7 +92,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (18, 1), -- Rage
 (19, 1), -- Wall Breakers
 
--- 3 Elixir
+-- Custo 3
 (20, 1), -- Knight
 (21, 1), -- Archers
 (22, 1), -- Minions
@@ -121,7 +121,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (45, 1), -- Elixir Golem
 (46, 1), -- Little Prince (Champion)
 
--- 4 Elixir
+-- Custo 4
 (47, 1), -- Valkyrie
 (48, 1), -- Musketeer
 (49, 1), -- Mini P.E.K.K.A
@@ -152,7 +152,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (74, 1), -- Skeleton King (Champion)
 (75, 1), -- Mighty Miner (Champion)
 
--- 5 Elixir
+-- Custo 5
 (76, 1), -- Giant
 (77, 1), -- Wizard
 (78, 1), -- Witch
@@ -174,7 +174,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (94, 1), -- Monk (Champion)
 (95, 1), -- Archer Queen (Champion)
 
--- 6 Elixir
+-- Custo 6
 (96, 1), -- Royal Giant
 (97, 1), -- Giant Skeleton
 (98, 1), -- Elite Barbarians
@@ -184,22 +184,26 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (102, 1), -- Rocket
 (103, 1), -- Lightning
 
--- 7 Elixir
+-- Custo 7
 (104, 1), -- P.E.K.K.A
 (105, 1), -- Mega Knight
 (106, 1), -- Lava Hound
 (107, 1), -- Royal Recruits
 (108, 1), -- Barbarian Hut
 
--- 8 Elixir
+-- Custo 8
 (109, 1), -- Golem
 (110, 1), -- Electro Giant
 
--- 9 Elixir
+-- Custo 9
 (111, 1); -- Three Musketeers
 
---Se for assim depois chapa-se as cartas todas, queremos 5000 queries🙏
+-- Gold / Gem links
+INSERT INTO Gold (item_id) VALUES (1);
+INSERT INTO Gem (item_id) VALUES (2);
+--Foi o chat que fez, tou perdido preciso da vossa ajuda nesta parte de cima e de baixo. É assim?😭
 
+-- Card (grouped)
 INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 -- Custo 1
 (3, 'Skeletons', 'common', 'ground', 1),
@@ -330,61 +334,75 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 
 
 -- Price (Preços na Loja)
-INSERT INTO Price (item_id, shop_id, price_value) VALUES (3, 1, 100); -- Knight custa 100
-INSERT INTO Price (item_id, shop_id, price_value) VALUES (5, 1, 500); -- Giant custa 500
+INSERT INTO Price (item_id, shop_id, price_value) VALUES
+(3, 1, 100), -- Knight custa 100
+(5, 1, 500); -- Giant custa 500
 --Tou confuso, dá para meter chests mas como?? Não tem item id
 --Vamos ficar reduzidos a gold coin e cards na shop basicamente
 
--- CardStats (Estatísticas por nível)
-INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES (3, 1, 600, 100); -- Knight Lvl 1
-INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES (3, 2, 660, 110); -- Knight Lvl 2
-INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES (4, 1, 200, 50);  -- Archers Lvl 1
+-- CardStats (Estatísticas por nível) -- grouped for item 20 (Knight)
+INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
+(20, 1, 1400, 160),
+(20, 2, 1540, 176),
+(20, 3, 1694, 193),
+(20, 4, 1863, 212),
+(20, 5, 2049, 233),
+(20, 15, 5000, 600);
+-- ... saltas para o nivel maximo para poupar trabalho
 --Tamos fucked, porque tipo existem 15 niveis para cada uma das 120 cartas👌(tomamos no butico)
 
 -- ChestInstance (Baús existentes)
-INSERT INTO ChestInstance (chest_id, type_name) VALUES (201, 'Silver');
-INSERT INTO ChestInstance (chest_id, type_name) VALUES (202, 'Gold');
+INSERT INTO ChestInstance (chest_id, type_name) VALUES
+(201, 'Silver'),
+(202, 'Gold');
 --Nao percebi esta mrd, pedi ao chat🤔
 
 -- ItemChest (O que está dentro dos baús - potencial ou real)
-INSERT INTO ItemChest (item_id, chest_id) VALUES (1, 201); -- Gold no Silver Chest
-INSERT INTO ItemChest (item_id, chest_id) VALUES (3, 201); -- Knight no Silver Chest
+INSERT INTO ItemChest (item_id, chest_id) VALUES
+(1, 201), -- Gold no Silver Chest
+(3, 201); -- Knight no Silver Chest
 --Tipo... aqui é mrds random ne? nao precisamos de fazer todas as combinaçoes
 
 
 
 -- Players
-INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, gems_balance, max_trophies, battles_won) 
-VALUES (10, 'TugaKing', 5, 1200, 5000, 100, 1250, 50);
-
-INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, gems_balance, max_trophies, battles_won) 
-VALUES (20, 'NoobMaster', 1, 0, 100, 0, 50, 1);
+INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, gems_balance, max_trophies, battles_won) VALUES
+(10, 'TugaKing', 5, 1200, 5000, 100, 1250, 50),
+(30, 'Lazaro', 10, 4000, 900000, 5000, 4100, 200),
+(40, 'GhostUser', 1, 0, 0, 0, 0, 0),
+(20, 'NoobMaster', 1, 0, 100, 0, 50, 1);
 
 -- PlayerArena
 -- Nota: TugaKing tem 1200 troféus, pode entrar na Arena 3 (Min 800)
 -- NoobMaster tem 0 troféus, entra na Arena 1 (Min 0)
-INSERT INTO PlayerArena (player_id, arena_id) VALUES (10, 3);
-INSERT INTO PlayerArena (player_id, arena_id) VALUES (20, 1);
+INSERT INTO PlayerArena (player_id, arena_id) VALUES
+(10, 3),
+(20, 1);
 --Era bue mais facil com triggers mas nao podemos usar... agora é tudo na mao da punheta
 
 -- PlayerClan
-INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES (10, 1, 'Leader');
-INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES (20, 1, 'Member');
+INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES
+(10, 1, 'Leader'),
+(20, 1, 'Member'),
+(30, 1, 'Builder');
 --Aqui é chill, pode ser qualquer cena
 
 -- PlayerChest (Baús que os jogadores possuem)
-INSERT INTO PlayerChest (chest_id, player_id) VALUES (201, 10);
-INSERT INTO PlayerChest (chest_id, player_id) VALUES (202, 10);
+INSERT INTO PlayerChest (chest_id, player_id) VALUES
+(201, 10),
+(202, 10);
 --Metemos tipo 4? Devia haver um limitador sei la
 
 -- PlayerCardLevel (Coleção dos jogadores)
-INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES (10, 3, 2); -- TugaKing tem Knight lvl 2
-INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES (10, 5, 1); -- TugaKing tem Giant lvl 1
-INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES (20, 3, 1); -- NoobMaster tem Knight lvl 1
+INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES
+(10, 3, 2), -- TugaKing tem Knight lvl 2
+(10, 5, 1), -- TugaKing tem Giant lvl 1
+(20, 3, 1); -- NoobMaster tem Knight lvl 1
 --Esta cena nao da para sacar la da coleçao de cima???
 
 -- Stats (Torneios)
-INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES (10, 1, 5, 1);
+INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES
+(10, 1, 5, 1);
 --Por player
 
 
@@ -401,16 +419,20 @@ INSERT INTO Deck (deck_id, deck_number, average_elixir, player_id) VALUES (1, 1,
 -- CardDeck (Preencher o deck do TugaKing)
 -- Knight (3 elixir) + Archers (3 elixir) + Giant (5 elixir) + Fireball (4 elixir)
 -- Total: 15 / 4 cartas = 3.75 elixir médio
-INSERT INTO CardDeck (item_id, deck_id) VALUES (3, 1);
-INSERT INTO CardDeck (item_id, deck_id) VALUES (4, 1);
-INSERT INTO CardDeck (item_id, deck_id) VALUES (5, 1);
-INSERT INTO CardDeck (item_id, deck_id) VALUES (6, 1);
+INSERT INTO CardDeck (item_id, deck_id) VALUES
+(20, 1), -- Knight (3)
+(39, 1), -- Princess (3)
+(30, 1), -- Goblin Barrel (3)
+(16, 1), -- The Log (2)
+(23, 1), -- Goblin Gang (3)
+(4, 1),  -- Ice Spirit (1)
+(87, 1), -- Inferno Tower (5)
+(102, 1); -- Rocket (6)
 
 -- Result (Batalhas)
 -- TugaKing (10) vs NoobMaster (20)
-INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) 
-VALUES (1001, 10, 20, 20, 10);
-
--- Outra batalha
-INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) 
-VALUES (1002, 20, 10, 20, 10);
+INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALUES
+(1001, 10, 20, 20, 10),
+(1003, 10, 30, 30, 10),
+(1004, 30, 20, 20, 30),
+(1002, 20, 10, 20, 10);
