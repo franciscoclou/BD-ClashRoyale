@@ -54,7 +54,7 @@ INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES
 
 -- Tournament
 INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) VALUES
-(1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00')
+(1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00'),
 (2, 'Winter Royale Bash', 'Round Robin', '2026-01-15 19:00:00', '2026-01-22 19:00:00'),
 (3, 'Desafio da Lâmina Silenciosa', 'Elimination', '2025-11-28 20:30:00', '2025-11-28 22:30:00'),
 (4, 'Copa da Sombra Eterna', 'League', '2026-02-01 10:00:00', '2026-02-28 22:00:00');
@@ -86,7 +86,11 @@ INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
 (23, 300, 2), 
 (24, 130, 3),
 (25, 200, 1),
-(26, 155, 2);
+(26, 155, 2),
+(1001, 180, 3),
+(1002, 180, 3),
+(1003, 180, 3),
+(1004, 180, 3);
 
 -- Items: Moedas, Gemas e Cartas 
 INSERT INTO Item (item_id, item_quantity) VALUES
@@ -219,7 +223,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (110, 1), -- Electro Giant
 
 -- Custo 9
-(111, 1); -- Three Musketeers
+(111, 1), -- Three Musketeers
 
 --More Quantity for Resources
 -- Gold 
@@ -233,11 +237,23 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (118, 10000), 
 (119, 10000),
 (120, 1000),
-(121, 100),
+(121, 100);
 
 -- Gold / Gem links
-INSERT INTO Gold (item_id) VALUES (1);
-INSERT INTO Gem (item_id) VALUES (2);
+INSERT INTO Gold (item_id) VALUES
+(1),
+(112),
+(113), 
+(114),
+(115),
+(116);
+INSERT INTO Gem (item_id) VALUES 
+(2),
+(117),
+(118), 
+(119),
+(120),
+(121);
 
 
 -- Card (grouped)
@@ -372,8 +388,8 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 
 -- Price (Preços na Loja)
 INSERT INTO Price (item_id, shop_id, price_value) VALUES
-(3, 1, 100), -- Knight custa 100
-(5, 1, 500); -- Giant custa 500
+(3, 1, 100), 
+(5, 1, 500); 
 
 
 -- CardStats (Estatísticas por nível)

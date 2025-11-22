@@ -48,7 +48,7 @@ CREATE TABLE Card (
 
 -- 4. Gold
 CREATE TABLE Gold (
-    item_id INT PRIMARY KEY,
+    item_id INT PRIMARY KEY, 
     FOREIGN KEY (item_id) REFERENCES Item (item_id)
 );
 
