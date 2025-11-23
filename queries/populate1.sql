@@ -674,10 +674,9 @@ INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES
 (10, 1, 'Leader'),
 (20, 1, 'Member'),
 (30, 1, 'Builder'),
--- merged additional player clans
 (50, 2, 'Co-Leader'),
-(60, 2, 'Member'),
-(70, 3, 'Member'),
+(60, 2, 'Leader'),
+(70, 3, 'Leader'),
 (80, 1, 'Elder');
 
 
@@ -961,68 +960,86 @@ INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES
 -- Stats (Torneios)
 INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES
 (10, 1, 5, 1),
--- merged additional stats
-(30, 2, 3, 2), -- Lazaro in Winter Royale Bash
+(30, 2, 3, 2), 
 (50, 4, 2, 5);
---Por player
 
 
 
 -- Deck
 INSERT INTO Deck (deck_id, deck_number, average_elixir, player_id) VALUES
-(1, 1, 0.0, 10),
-(2, 1, 3.75, 30),
-(3, 2, 4.25, 60),
-(4, 1, 3.50, 50),
-(5, 1, 2.75, 70);
+--Decks Player ID:10
+(101, 1, 3.1, 10),
+(102, 2, 2.9, 10), 
+(103, 3, 4.1, 10),
 
--- CardDeck (Preencher o deck do TugaKing)
--- Knight (3 elixir) + Archers (3 elixir) + Giant (5 elixir) + Fireball (4 elixir)
--- Total: 15 / 4 cartas = 3.75 elixir médio
+--Decks Player ID:20
+(201, 1, 3.5, 20),
+
+--Decks Player ID:30    
+(301, 1, 3.4, 30), 
+(302, 2, 3.0, 30), 
+(303, 3, 4.4, 30), 
+(304, 4, 4.0, 30),
+
+--Decks Player ID:50
+(501, 1, 2.6, 50),
+(502, 2, 3.6, 50),
+
+--Decks Player ID:60
+(601, 1, 3.4, 60),
+(602, 2, 3.8, 60),
+
+--Decks Player ID:70
+(701, 1, 4.0, 70),
+
+--Decks Player ID:80
+(801, 1, 4.1, 80);
 
 -- CardDeck
 INSERT INTO CardDeck (item_id, deck_id) VALUES
-(20, 1), -- Knight (3)
-(39, 1), -- Princess (3)
-(30, 1), -- Goblin Barrel (3)
-(16, 1), -- The Log (2)
-(23, 1), -- Goblin Gang (3)
-(4, 1),  -- Ice Spirit (1)
-(87, 1), -- Inferno Tower (5)
-(102, 1), -- Rocket (6)
--- merged new carddeck rows for other decks
-(20, 2), -- Knight in Lazaro's deck
-(76, 2), -- Giant in Lazaro's deck
-(62, 2), -- Fireball
-(33, 2), -- Arrows
-(48, 2), -- Musketeer
-(49, 2), -- Mini P.E.K.K.A
-(11, 2), -- Bats
-(14, 2), -- Zap
-(39, 3), -- Princess in Shadow's deck
-(24, 3), -- Mega Minion
-(102, 3), -- Rocket
-(16, 3), -- The Log
-(96, 3), -- Royal Giant
-(54, 3), -- Furnace
-(103, 3), -- Lightning
-(3, 3),  -- Skeletons
-(20, 4), -- Knight in Ace's deck
-(46, 4), -- Little Prince
-(87, 4), -- Inferno Tower
-(30, 4), -- Goblin Barrel
-(73, 4), -- Golden Knight (Champion)
-(38, 4), -- Void
-(21, 4), -- Archers
-(4, 4),  -- Ice Spirit
-(20, 5), -- Knight in Rookie's deck
-(21, 5), -- Archers
-(11, 5), -- Bats
-(14, 5), -- Zap
-(76, 5), -- Giant
-(12, 5), -- Bomber
-(48, 5), -- Musketeer
-(62, 5); -- Fireball
+--Deck ID:101
+(20, 101), (21, 101), (33, 101), (50, 101), (47, 101), (3, 101), (62, 101), (29, 101),
+
+--Deck ID:102
+(50, 102), (29, 102), (20, 102), (62, 102), (16, 102), (48, 102), (3, 102), (9, 102),
+
+--Deck ID:103
+(109, 103), (16, 103), (96, 103), (50, 103), (78, 103), (22, 103), (27, 103), (9, 103),
+
+--Deck ID:201
+(20, 201), (21, 201), (33, 201), (12, 201), (76, 201), (48, 201), (49, 201), (62, 201),
+
+--Deck ID:301
+(30, 301), (23, 301), (39, 301), (16, 301), (102, 301), (47, 301), (87, 301), (6, 301),  
+
+--Deck ID:302: 
+(50, 302), (95, 302), (56, 302), (20, 302), (3, 302), (5, 302), (62, 302), (14, 302), 
+
+--Deck ID:303: 
+(109, 303), (67, 303), (68, 303), (80, 303), (24, 303), (12, 303), (103, 303), 
+
+--Deck ID:304:
+(105, 304), (98, 304), (92, 304), (65, 304), (42, 304), (11, 304), (33, 304), (14, 304),
+
+--Deck ID:501
+(50, 501), (48, 501), (13, 501), (4, 501), (3, 501), (29, 501), (62, 501), (16, 501),
+
+--Deck ID:502
+(105, 502), (30, 502), (39, 502), (26, 502), (27, 502), (87, 502), (33, 502), (11, 502),
+
+--Deck ID:601
+(96, 601), (62, 601), (16, 601), (3, 601), (11, 601), (56, 601), (48, 601), (47, 601),
+
+--Deck ID:602
+(85, 602), (64, 602), (20, 602), (80, 602), (87, 602), (33, 602), (27, 602), (41, 602),
+
+--Deck ID:701
+(76, 701), (78, 701), (48, 701), (49, 701), (80, 701), (27, 701), (62, 701), (33, 701),
+
+--Deck ID:801
+(76, 801), (78, 801), (79, 801), (48, 801), (80, 801), (27, 801), (62, 801), (33, 801);
+
+
 
 -- Result (Batalhas)
 INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALUES
@@ -1030,28 +1047,25 @@ INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALU
 (2, 10, 30, 30, 10),
 (3, 30, 20, 20, 30),
 (4, 20, 10, 20, 10),
--- merged additional results
 (5, 50, 60, 60, 50),
 (6, 30, 50, 50, 30),
 (7, 70, 10, 70, 10),
 (8, 60, 20, 20, 60),
 (9, 30, 20, 20, 30),
 (10, 50, 10, 10, 50),
-(11, 10, 50, 10, 50), -- Ace ganha ao TugaKing
-(12, 30, 60, 60, 30), -- Lazaro ganha ao Shadow
-(13, 70, 80, 70, 80), -- Bench ganha ao Rookie
-(14, 20, 40, 40, 20), -- NoobMaster ganha ao GhostUser
-(15, 50, 30, 30, 50), -- Ace ganha ao Lazaro
-(16, 10, 60, 10, 60), -- Shadow ganha ao TugaKing
+(11, 10, 50, 10, 50),
+(12, 30, 60, 60, 30), 
+(13, 70, 80, 70, 80),
+(14, 20, 40, 40, 20), 
+(15, 50, 30, 30, 50), 
+(16, 10, 60, 10, 60), 
 (17, 80, 20, 20, 80), 
 (18, 50, 10, 10, 50),
 (19, 30, 80, 80, 30),
 (20, 60, 70, 70, 60),
-(21, 40, 10, 40, 10), -- TugaKing esmaga GhostUser (3 coroas provaveis)
+(21, 40, 10, 40, 10), 
 (22, 50, 60, 60, 50),
 (23, 30, 10, 10, 30),
 (24, 20, 70, 70, 20),
 (25, 80, 40, 40, 80),
 (26, 50, 30, 30, 50);
-
--- the appended additional inserts were merged above into original blocks
