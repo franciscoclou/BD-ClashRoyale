@@ -226,4 +226,5 @@ CREATE TABLE Result (
     FOREIGN KEY (player_id1) REFERENCES Player (player_id) ON DELETE CASCADE,
     FOREIGN KEY (player_id2) REFERENCES Player (player_id) ON DELETE CASCADE,
     CHECK (player_id1 <> player_id2) --player1 diferente do player2
+    --CHECK (loser_id IN (player_id1, player_id2) AND winner_id IN (player_id1, player_id2) AND loser_id <> winner_id)
 );
