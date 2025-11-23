@@ -3,7 +3,9 @@ PRAGMA foreign_keys = ON;
 -- Shop
 INSERT INTO Shop (shop_id, refresh_timestamp) VALUES
 (1, '00:00:00'),
-(2, '12:00:00');
+(2, '12:00:00'),
+-- added shop merged (was appended later)
+(3, '18:00:00');
 
 -- ChestType
 INSERT INTO ChestType (type_name, unlock_time_minutes) VALUES
@@ -86,11 +88,7 @@ INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
 (23, 300, 2), 
 (24, 130, 3),
 (25, 200, 1),
-(26, 155, 2),
-(1001, 180, 3),
-(1002, 180, 3),
-(1003, 180, 3),
-(1004, 180, 3);
+(26, 155, 2);
 
 -- Items: Moedas, Gemas e Cartas 
 INSERT INTO Item (item_id, item_quantity) VALUES
@@ -389,7 +387,19 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 -- Price (Preços na Loja)
 INSERT INTO Price (item_id, shop_id, price_value) VALUES
 (3, 1, 100), 
-(5, 1, 500); 
+(5, 1, 500), 
+(14, 1, 50),   -- Zap
+(48, 1, 200),  -- Musketeer
+-- merged additional prices
+(20, 2, 250), -- Knight in shop 2
+(76, 2, 1200), -- Giant in shop 1
+(3, 2, 80), -- Skeletons discounted in shop 2
+(104, 2, 2000), -- P.E.K.K.A (Epic)
+(11, 2, 20),    -- Bats
+(95, 3, 40000), -- Archer Queen (Champion - caro!)
+(8, 3, 1000),   -- Mirror
+(109, 3, 2000), -- Golem
+(21, 3, 50);    -- Archers
 
 
 -- CardStats (Estatísticas por nível)
@@ -616,7 +626,11 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 -- ChestInstance 
 INSERT INTO ChestInstance (chest_id, type_name) VALUES
 (201, 'Silver'),
-(202, 'Gold');
+(202, 'Gold'),
+-- merged additional chest instances
+(203, 'Wooden'),
+(204, 'Magical'),
+(205, 'Legendary');
 
 -- ItemChest
 INSERT INTO ItemChest (item_id, chest_id) VALUES
@@ -625,7 +639,13 @@ INSERT INTO ItemChest (item_id, chest_id) VALUES
 (43, 201),
 (2, 202), 
 (4, 202), 
-(116, 202); 
+(116, 202), 
+-- merged additional itemchest rows
+(3, 203), -- Skeletons in Wooden chest
+(5, 203), -- Fire Spirit in Wooden chest
+(1, 204), -- Gold in Magical chest
+(30, 202), -- Goblin Barrel in Gold chest
+(112, 204); -- extra gold stack in Magical chest
 
 
 -- Players
@@ -633,40 +653,87 @@ INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, g
 (10, 'TugaKing', 5, 1200, 5000, 100, 1250, 50),
 (30, 'Lazaro', 10, 4000, 900000, 5000, 4100, 200),
 (40, 'GhostUser', 1, 0, 0, 0, 0, 0),
-(20, 'NoobMaster', 1, 0, 100, 0, 50, 1);
+(20, 'NoobMaster', 1, 0, 100, 0, 50, 1),
+-- merged additional players
+(50, 'Ace', 8, 5100, 25000, 150, 5050, 640),
+(60, 'Shadow', 7, 3200, 12000, 400, 3300, 420),
+(70, 'Rookie', 2, 300, 200, 20, 300, 5),
+(80, 'Bench', 3, 900, 800, 10, 950, 15);
 
 
 INSERT INTO PlayerArena (player_id, arena_id) VALUES
 (10, 3),
-(20, 1);
+(20, 1),
+-- merged additional player arenas
+(50, 15), -- Ace in Miner's Mine
+(60, 10), -- Shadow in Hog Mountain
+(70, 2),
+(80, 3);
 
 -- PlayerClan
 INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES
 (10, 1, 'Leader'),
 (20, 1, 'Member'),
-(30, 1, 'Builder');
+(30, 1, 'Builder'),
+-- merged additional player clans
+(50, 2, 'Co-Leader'),
+(60, 2, 'Member'),
+(70, 3, 'Member'),
+(80, 1, 'Elder');
 
 
 -- PlayerChest (Baús que os jogadores possuem)
 INSERT INTO PlayerChest (chest_id, player_id) VALUES
 (201, 10),
-(202, 10);
+(202, 10),
+-- merged additional player chests
+(203, 50),
+(204, 80);
 
 -- PlayerCardLevel (Coleção dos jogadores)
 INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES
 (10, 3, 2), -- TugaKing tem Knight lvl 2
 (10, 5, 1), -- TugaKing tem Giant lvl 1
-(20, 3, 1); -- NoobMaster tem Knight lvl 1
+(20, 3, 1), -- NoobMaster tem Knight lvl 1
+-- Lazaro (Lvl 10, deve ter muitas cartas)
+(30, 48, 5), -- Musketeer
+(30, 49, 5), -- Mini PEKKA
+(30, 62, 5), -- Fireball
+(30, 104, 4), -- PEKKA
+-- merged additional player card levels
+-- Ace (Lvl 8)
+(50, 46, 2), -- Little Prince
+(50, 73, 1), -- Golden Knight
+(50, 30, 5), -- Goblin Barrel
+(50, 20, 4), -- Ace: Knight lvl 4
+(50, 76, 3), -- Ace: Giant lvl 3
+(60, 39, 2), -- Shadow: Princess lvl 2
+(60, 24, 3), -- Shadow: Mega Minion lvl 3
+(60, 96, 7), -- Royal Giant
+(60, 103, 3), -- Lightning
+(70, 20, 1), -- Rookie: Knight lvl 1
+(70, 76, 2), -- Giant
+(70, 12, 3), -- Bomber
+(70, 48, 1), -- Musketeer
+(80, 21, 1); -- Bench: Archers lvl 1
 
 -- Stats (Torneios)
 INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES
-(10, 1, 5, 1);
+(10, 1, 5, 1),
+-- merged additional stats
+(30, 2, 3, 2), -- Lazaro in Winter Royale Bash
+(50, 4, 2, 5);
 --Por player
 
 
 
 -- Deck
-INSERT INTO Deck (deck_id, deck_number, average_elixir, player_id) VALUES (1, 1, 0.0, 10);
+INSERT INTO Deck (deck_id, deck_number, average_elixir, player_id) VALUES
+(1, 1, 0.0, 10),
+(2, 1, 3.75, 30),
+(3, 2, 4.25, 60),
+(4, 1, 3.50, 50),
+(5, 1, 2.75, 70);
 
 -- CardDeck (Preencher o deck do TugaKing)
 -- Knight (3 elixir) + Archers (3 elixir) + Giant (5 elixir) + Fireball (4 elixir)
@@ -681,11 +748,69 @@ INSERT INTO CardDeck (item_id, deck_id) VALUES
 (23, 1), -- Goblin Gang (3)
 (4, 1),  -- Ice Spirit (1)
 (87, 1), -- Inferno Tower (5)
-(102, 1); -- Rocket (6)
+(102, 1), -- Rocket (6)
+-- merged new carddeck rows for other decks
+(20, 2), -- Knight in Lazaro's deck
+(76, 2), -- Giant in Lazaro's deck
+(62, 2), -- Fireball
+(33, 2), -- Arrows
+(48, 2), -- Musketeer
+(49, 2), -- Mini P.E.K.K.A
+(11, 2), -- Bats
+(14, 2), -- Zap
+(39, 3), -- Princess in Shadow's deck
+(24, 3), -- Mega Minion
+(102, 3), -- Rocket
+(16, 3), -- The Log
+(96, 3), -- Royal Giant
+(54, 3), -- Furnace
+(103, 3), -- Lightning
+(3, 3),  -- Skeletons
+(20, 4), -- Knight in Ace's deck
+(46, 4), -- Little Prince
+(87, 4), -- Inferno Tower
+(30, 4), -- Goblin Barrel
+(73, 4), -- Golden Knight (Champion)
+(38, 4), -- Void
+(21, 4), -- Archers
+(4, 4),  -- Ice Spirit
+(20, 5), -- Knight in Rookie's deck
+(21, 5), -- Archers
+(11, 5), -- Bats
+(14, 5), -- Zap
+(76, 5), -- Giant
+(12, 5), -- Bomber
+(48, 5), -- Musketeer
+(62, 5); -- Fireball
 
 -- Result (Batalhas)
 INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALUES
-(1001, 10, 20, 20, 10),
-(1003, 10, 30, 30, 10),
-(1004, 30, 20, 20, 30),
-(1002, 20, 10, 20, 10);
+(1, 10, 20, 20, 10),
+(2, 10, 30, 30, 10),
+(3, 30, 20, 20, 30),
+(4, 20, 10, 20, 10),
+-- merged additional results
+(5, 50, 60, 60, 50),
+(6, 30, 50, 50, 30),
+(7, 70, 10, 70, 10),
+(8, 60, 20, 20, 60),
+(9, 30, 20, 20, 30),
+(10, 50, 10, 10, 50),
+(11, 10, 50, 10, 50), -- Ace ganha ao TugaKing
+(12, 30, 60, 60, 30), -- Lazaro ganha ao Shadow
+(13, 70, 80, 70, 80), -- Bench ganha ao Rookie
+(14, 20, 40, 40, 20), -- NoobMaster ganha ao GhostUser
+(15, 50, 30, 30, 50), -- Ace ganha ao Lazaro
+(16, 10, 60, 10, 60), -- Shadow ganha ao TugaKing
+(17, 80, 20, 20, 80), 
+(18, 50, 10, 10, 50),
+(19, 30, 80, 80, 30),
+(20, 60, 70, 70, 60),
+(21, 40, 10, 40, 10), -- TugaKing esmaga GhostUser (3 coroas provaveis)
+(22, 50, 60, 60, 50),
+(23, 30, 10, 10, 30),
+(24, 20, 70, 70, 20),
+(25, 80, 40, 40, 80),
+(26, 50, 30, 30, 50);
+
+-- the appended additional inserts were merged above into original blocks
