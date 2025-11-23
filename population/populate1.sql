@@ -56,9 +56,9 @@ INSERT INTO Clan (clan_id, clan_name, flag_id, clan_trophies) VALUES
 -- Tournament
 INSERT INTO Tournament (tournament_id, tournament_name, tournament_type, start_date, end_date) VALUES
 (1, 'Summer Cup', 'Elimination', '2023-06-01 10:00:00', '2023-06-01 12:00:00'),
-(2, 'Winter Royale Bash', 'Round Robin', '2026-01-15 19:00:00', '2026-01-22 19:00:00'),
-(3, 'Desafio da Lâmina Silenciosa', 'Elimination', '2025-11-28 20:30:00', '2025-11-28 22:30:00'),
-(4, 'Copa da Sombra Eterna', 'League', '2026-02-01 10:00:00', '2026-02-28 22:00:00');
+(2, 'Winter Royale', 'Round Robin', '2026-01-15 19:00:00', '2026-01-22 19:00:00'),
+(3, 'Torneio de BD', 'Elimination', '2025-11-28 20:30:00', '2025-11-28 22:30:00'),
+(4, 'Classic', 'League', '2026-02-01 10:00:00', '2026-02-28 22:00:00');
 
 -- Battle
 INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
@@ -69,25 +69,14 @@ INSERT INTO Battle (battle_id, battle_duration, crowns_total) VALUES
 (5, 235, 2),
 (6, 150, 1),
 (7, 45, 3),  
-(8, 85, 3), 
-(9, 110, 3),
-(10, 95, 2),
-(11, 180, 1), 
-(12, 175, 2),
-(13, 160, 1),
-(14, 178, 1),
-(15, 180, 2),
-(16, 195, 1), 
-(17, 210, 1),
-(18, 245, 2), 
-(19, 290, 1),
-(20, 299, 1), 
-(21, 300, 0), 
-(22, 300, 0), 
-(23, 300, 2), 
-(24, 130, 3),
-(25, 200, 1),
-(26, 155, 2);
+(8, 195, 1), 
+(9, 210, 1),
+(10, 245, 2), 
+(11, 290, 1),
+(12, 299, 1), 
+(13, 300, 0), 
+(14, 300, 0), 
+(15, 300, 2);
 
 -- Items: Moedas, Gemas e Cartas 
 INSERT INTO Item (item_id, item_quantity) VALUES
@@ -387,17 +376,19 @@ INSERT INTO Card (item_id, card_name, rarity, card_type, elixir_cost) VALUES
 INSERT INTO Price (item_id, shop_id, price_value) VALUES
 (3, 1, 100), 
 (5, 1, 500), 
-(14, 1, 50),   -- Zap
-(48, 1, 200),  -- Musketeer
-(20, 2, 250), -- Knight in shop 2
-(76, 2, 1200), -- Giant in shop 1
-(3, 2, 80), -- Skeletons
-(104, 2, 2000), -- P.E.K.K.A (Epic)
-(11, 2, 20),    -- Bats
-(95, 3, 40000), -- Archer Queen (Champion - caro!)
-(8, 3, 1000),   -- Mirror
-(109, 3, 2000), -- Golem
-(21, 3, 50);    -- Archers
+(14, 1, 50), 
+(48, 1, 200), 
+
+(20, 2, 250),
+(76, 2, 1200),
+(3, 2, 80),
+(104, 2, 2000),
+(11, 2, 20),
+
+(95, 3, 40000), 
+(8, 3, 1000),
+(109, 3, 2000), 
+(21, 3, 50); 
 
 
 -- CardStats (Estatísticas por nível)
@@ -631,24 +622,26 @@ INSERT INTO ChestInstance (chest_id, type_name) VALUES
 
 -- ItemChest
 INSERT INTO ItemChest (item_id, chest_id) VALUES
-(1, 201), -- Gold no Silver Chest 1000000
+(1, 201), 
 (65, 201), 
 (43, 201),
+
 (2, 202), 
 (4, 202), 
-(116, 202), 
--- merged additional itemchest rows
-(3, 203), -- Skeletons in Wooden chest
-(5, 203), -- Fire Spirit in Wooden chest
-(1, 204), -- Gold in Magical chest
-(30, 202), -- Goblin Barrel in Gold chest
-(112, 204); -- extra gold stack in Magical chest
+(116, 202),
+ 
+(3, 203), 
+(5, 203), 
+
+(1, 204), 
+(30, 202), 
+(112, 204); 
 
 
 -- Players
 INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, gems_balance, max_trophies, battles_won) VALUES
 (10, 'TugaKing', 5, 1200, 5000, 100, 1250, 50),
-(30, 'Lazaro', 10, 4000, 900000, 5000, 4100, 200),
+(30, 'BD-King', 10, 4000, 900000, 5000, 4100, 200),
 (40, 'GhostUser', 1, 0, 0, 0, 0, 0),
 (20, 'NoobMaster', 1, 0, 100, 0, 50, 1),
 (50, 'Ace', 8, 5100, 25000, 150, 5050, 640),
@@ -660,6 +653,8 @@ INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, g
 INSERT INTO PlayerArena (player_id, arena_id) VALUES
 (10, 3),
 (20, 1),
+(30, 12),
+(40, 1),
 (50, 15),
 (60, 10), 
 (70, 2),
@@ -956,8 +951,9 @@ INSERT INTO PlayerCardLevel (player_id, item_id, current_level) VALUES
 INSERT INTO Stats (player_id, tournament_id, win_streak, ranking_position) VALUES
 (10, 1, 5, 1),
 (30, 2, 3, 2), 
-(50, 4, 2, 5);
-
+(50, 4, 2, 5),
+(60, 3, 6, 3),
+(80, 4, 0, 8);
 
 
 -- Deck
@@ -1052,15 +1048,4 @@ INSERT INTO Result (battle_id, player_id1, player_id2, loser_id, winner_id) VALU
 (12, 30, 60, 60, 30), 
 (13, 70, 80, 70, 80),
 (14, 20, 40, 40, 20), 
-(15, 50, 30, 30, 50), 
-(16, 10, 60, 10, 60), 
-(17, 80, 20, 20, 80), 
-(18, 50, 10, 10, 50),
-(19, 30, 80, 80, 30),
-(20, 60, 70, 70, 60),
-(21, 40, 10, 40, 10), 
-(22, 50, 60, 60, 50),
-(23, 30, 10, 10, 30),
-(24, 20, 70, 70, 20),
-(25, 80, 40, 40, 80),
-(26, 50, 30, 30, 50);
+(15, 50, 30, 30, 50);
