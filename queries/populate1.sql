@@ -4,7 +4,6 @@ PRAGMA foreign_keys = ON;
 INSERT INTO Shop (shop_id, refresh_timestamp) VALUES
 (1, '00:00:00'),
 (2, '12:00:00'),
--- added shop merged (was appended later)
 (3, '18:00:00');
 
 -- ChestType
@@ -102,7 +101,7 @@ INSERT INTO Item (item_id, item_quantity) VALUES
 (5, 1), -- Fire Spirit
 (6, 1), -- Electro Spirit
 (7, 1), -- Heal Spirit
-(8, 1), -- Mirror (Variable Cost)
+(8, 1), -- Mirror
 
 -- Custo 2
 (9, 1), -- Goblins
@@ -390,10 +389,9 @@ INSERT INTO Price (item_id, shop_id, price_value) VALUES
 (5, 1, 500), 
 (14, 1, 50),   -- Zap
 (48, 1, 200),  -- Musketeer
--- merged additional prices
 (20, 2, 250), -- Knight in shop 2
 (76, 2, 1200), -- Giant in shop 1
-(3, 2, 80), -- Skeletons discounted in shop 2
+(3, 2, 80), -- Skeletons
 (104, 2, 2000), -- P.E.K.K.A (Epic)
 (11, 2, 20),    -- Bats
 (95, 3, 40000), -- Archer Queen (Champion - caro!)
@@ -627,7 +625,6 @@ INSERT INTO CardStats (item_id, card_level, health_points, damage_points) VALUES
 INSERT INTO ChestInstance (chest_id, type_name) VALUES
 (201, 'Silver'),
 (202, 'Gold'),
--- merged additional chest instances
 (203, 'Wooden'),
 (204, 'Magical'),
 (205, 'Legendary');
@@ -663,9 +660,8 @@ INSERT INTO Player (player_id, username, player_level, trophies, gold_balance, g
 INSERT INTO PlayerArena (player_id, arena_id) VALUES
 (10, 3),
 (20, 1),
--- merged additional player arenas
-(50, 15), -- Ace in Miner's Mine
-(60, 10), -- Shadow in Hog Mountain
+(50, 15),
+(60, 10), 
 (70, 2),
 (80, 3);
 
@@ -684,7 +680,6 @@ INSERT INTO PlayerClan (player_id, clan_id, clan_role) VALUES
 INSERT INTO PlayerChest (chest_id, player_id) VALUES
 (201, 10),
 (202, 10),
--- merged additional player chests
 (203, 50),
 (204, 80);
 
