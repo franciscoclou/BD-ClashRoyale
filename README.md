@@ -1,6 +1,5 @@
 <div align="left">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Clash_Royale_logo.png/220px-Clash_Royale_logo.png" alt="Clash Royale Logo" width="200" />
-  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="main_logo_clashroyale.5e3fbb70__1_.webp" alt="Clash Royale Logo" width="200" />
   <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/SQLite370.svg" alt="SQLite Logo" width="150" />
 </div>
 
